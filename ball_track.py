@@ -35,7 +35,6 @@ while True:
 
     #resize the frame, blur it, and convert it to the HSV color space
     frame = imutils.resize(frame, width=600)
-    #blurre = cv2.GaussianBlur(frame, (11,11), 0)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     #contruct a mask for the color green, then perform a series of dilations and erosions to remove
@@ -71,7 +70,7 @@ while True:
 
             #otherwise, compute the thickness of the line and draw connecting lines
             thickness = int(np.sqrt(args["buffer"]/ float(i + 1))* 2.5)
-            cv2.line(frame,pts[i - 1], pts[i], (0,0,255),thickness)
+            cv2.line(frame,pts[i - 1], pts[i], (0,255,0),thickness)
 
         cv2.imshow('BallTrackin Frame', frame)
         key = cv2.waitKey(1) & 0xFF
